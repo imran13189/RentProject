@@ -1,0 +1,306 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/assets/css/wizard.css")">
+<script src="~/Scripts/Custom/RentProperty.js"></script>
+
+<div class="page-head">
+    <div class="container">
+        <div class="row">
+            <div class="page-head-content">
+                <h1 class="page-title">Submit new property</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End page header -->
+<!-- property area -->
+<div class="content-area submit-property" style="background-color: #FCFCFC;">
+    &nbsp;
+    <div class="container">
+        <div class="clearfix">
+            <div class="wizard-container">
+                <div class="wizard-card ct-wizard-orange" id="wizardProperty">
+                    <form action="" id="frmpropertyrent">
+                        <div class="wizard-header">
+                            <h3>
+                                <b>Submit</b> YOUR PROPERTY <br>
+                                <small>Lorem ipsum dolor sit amet, consectetur adipisicing.</small>
+                            </h3>
+                        </div>
+                        <ul>
+                            <li><a href="#step1" data-toggle="tab">Step 1 </a></li>
+                            <li><a href="#step2" data-toggle="tab">Step 2 </a></li>
+                            <li><a href="#step3" data-toggle="tab">Step 3 </a></li>
+                            @*<li><a href="#step4" data-toggle="tab">Step 4 </a></li>*@
+                            <li><a href="#step4" data-toggle="tab">Finished </a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="step1">
+                                <div class="row p-b-15  ">
+                                    <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                    @*<div class="col-sm-4 col-sm-offset-1">
+                                        <div class="picture-container">
+                                            <div class="picture">
+                                                <img src="assets/img/default-property.jpg" class="picture-src" id="wizardPicturePreview" title="" />
+                                                <input type="file" id="wizard-picture">
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                    <div class="col-sm-6 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Property name <small>(required)</small></label>
+                                            <input name="PropertyName" type="text" class="form-control" placeholder="Super villa ...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Property Type <small>(required)</small></label>
+                                            <select id="ddlproperty" name="PropertyType" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select property type"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Telephone <small>(empty if you wanna use default phone number)</small></label>
+                                            <input name="Mobile" type="text" class="form-control" placeholder="+1 473 843 7436">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  End step 1 -->
+                            <div class="tab-pane" id="step2">
+                                <h4 class="info-text"> How much your Property is Beautiful ? </h4>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Property Description :</label>
+                                                <textarea name="Description" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Property State :</label>
+                                                <select id="ddlstate" data-live-search="true" data-live-search-style="begins" title="Select your state"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Property City :</label>
+                                                <select id="ddlcity" name="CityId" data-live-search="true" data-live-search-style="begins" title="Select your city"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Area  :</label>
+                                                <input name="PropertyName" type="text" class="form-control" placeholder="Super villa ...">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Area Type  :</label>
+                                                <select id="basic" class="selectpicker show-tick form-control">
+                                                    <option value="1">Sq Ft</option>
+                                                    <option value="2">Sq Meter</option>
+                                                    <option value="3">Sq Yard</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 padding-top-15">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label for="property-geo">Total Floor :</label>
+                                                <input type="text" class="span2" value="" data-slider-min="1"
+                                                       data-slider-max="20" data-slider-step="1"
+                                                       data-slider-value="[1,4]" id="min-bed"><br />
+                                                <b class="pull-left color">1</b>
+                                                <b class="pull-right color">20</b>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label for="price-range">Min baths :</label>
+                                                <input type="text" class="span2" value="" data-slider-min="1"
+                                                       data-slider-max="5" data-slider-step="1"
+                                                       data-slider-value="[1,2]" id="min-baths"><br />
+                                                <b class="pull-left color">1</b>
+                                                <b class="pull-right color">5</b>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label for="property-geo">Property geo (m2) :</label>
+                                                <input type="text" class="span2" value="" data-slider-min="1"
+                                                       data-slider-max="600" data-slider-step="1"
+                                                       data-slider-value="[50,450]" id="property-geo"><br />
+                                                <b class="pull-left color">40m</b>
+                                                <b class="pull-right color">12000m</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 padding-top-15">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Car Parking
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Bike Parking
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Lift
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> 24 hrs water
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-12 padding-bottom-15">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="FurnishedType" type="radio" value="1"> Semi Furnished
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="FurnishedType" type="radio" value="2"> Full Furnished
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="FurnishedType" type="radio" value="3"> Un furnished
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                            <!-- End step 2 -->
+                            <div class="tab-pane" id="step3">
+                                <div class="row p-b-15  ">
+                                    <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                    
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Expected Price <small>(required)</small></label>
+                                            <input name="ExpectedPrice" type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Security Amount<small>(required)</small></label>
+                                            <input name="SecurityAmount" type="text" class="form-control" placeholder="">
+                                        <div class="form-group">
+                                            <label>Maintenance Charges <small>(empty if you wanna use default phone number)</small></label>
+                                            <input name="MaintenanceCharges" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            <!-- End step 3 -->
+                            @*<div class="tab-pane" id="step4">
+                                <h4 class="info-text">Give us somme images and videos ? </h4>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="property-images">Chose Images :</label>
+                                            <input class="form-control" multiple type="file" name="Photos" id="propertyimages">
+                                            <p class="help-block">Select multipel images for your property .</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="property-video">Property video :</label>
+                                            <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <!--  End step 3 -->
+
+                            <div class="tab-pane" id="step4">
+                                <h4 class="info-text"> Finished and submit </h4>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="">
+                                            <p>
+                                                <label><strong>Terms and Conditions</strong></label>
+                                                By accessing or using  GARO ESTATE services, such as
+                                                posting your property advertisement with your personal
+                                                information on our website you agree to the
+                                                collection, use and disclosure of your personal information
+                                                in the legal proper manner
+                                            </p>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> <strong>Accept termes and conditions.</strong>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  End step 4 -->
+                        </div>
+                        <div class="wizard-footer">
+                            <div class="pull-right">
+                                <input type='button' class='btn btn-next btn-primary' name='next' value='Next' />
+                                <input type='submit' class='btn btn-finish btn-primary' id="btnfinish" name='finish' value='Finish' />
+                            </div>
+                            <div class="pull-left">
+                                <input type='button' class='btn btn-previous btn-default' name='previous' value='Previous' />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <input type="hidden" name="PropertyId" id="PropertyId" />
+                    </form>
+                </div>
+                <!-- End submit form -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/assets/js/jquery.bootstrap.wizard.js"></script>
+<script src="~/Content/assets/js/jquery.validate.min.js"></script>
+<script src="@Url.Content("~/Content/assets/js/wizard.js")"></script>

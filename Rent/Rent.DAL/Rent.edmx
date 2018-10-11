@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SIPAZModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AU">
+          <Key>
+            <PropertyRef Name="AU_ID" />
+          </Key>
+          <Property Name="AU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AU" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Face">
+          <Key>
+            <PropertyRef Name="FaceId" />
+          </Key>
+          <Property Name="FaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Face" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PropertyFiles">
+          <Key>
+            <PropertyRef Name="PhotoId" />
+          </Key>
+          <Property Name="PhotoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PropertyId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyRent">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Locality" Type="varchar(max)" />
+          <Property Name="PropertyType" Type="int" Nullable="false" />
+          <Property Name="Area" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AU" Type="int" Nullable="false" />
+          <Property Name="ADType" Type="int" />
+          <Property Name="AvailableStatus" Type="int" />
+          <Property Name="AvailableDate" Type="datetime" />
+          <Property Name="ExpectedPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="SecurityAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MaintenanceCharges" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BathroomNum" Type="int" />
+          <Property Name="TotalFloor" Type="int" />
+          <Property Name="FloorNum" Type="int" />
+          <Property Name="FurnishedType" Type="bit" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="ProjectSociety" Type="varchar(max)" />
+          <Property Name="CarParking" Type="bit" Nullable="false" />
+          <Property Name="FacingId" Type="int" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="PropertyName" Type="varchar" MaxLength="10" />
+          <Property Name="BikeParking" Type="bit" Nullable="false" />
+          <Property Name="Lift" Type="bit" Nullable="false" />
+          <Property Name="Water" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SIPAZModelStoreContainer">
+          <EntitySet Name="AU" EntityType="Self.AU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Face" EntityType="Self.Face" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyFiles" EntityType="Self.PropertyFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyRent" EntityType="Self.PropertyRent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SIPAZModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AU">
+          <Key>
+            <PropertyRef Name="AU_ID" />
+          </Key>
+          <Property Name="AU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AU1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Face">
+          <Key>
+            <PropertyRef Name="FaceId" />
+          </Key>
+          <Property Name="FaceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Face1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SIPAZEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AUs" EntityType="Self.AU" />
+          <EntitySet Name="Faces" EntityType="Self.Face" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Users" EntityType="SIPAZModel.User" />
+          <EntitySet Name="PropertyRents" EntityType="SIPAZModel.PropertyRent" />
+          <EntitySet Name="PropertyFiles" EntityType="SIPAZModel.PropertyFile" />
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PropertyRent">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Locality" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyType" Type="Int32" Nullable="false" />
+          <Property Name="Area" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AU" Type="Int32" Nullable="false" />
+          <Property Name="ADType" Type="Int32" />
+          <Property Name="AvailableStatus" Type="Int32" />
+          <Property Name="AvailableDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpectedPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="SecurityAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MaintenanceCharges" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BathroomNum" Type="Int32" />
+          <Property Name="TotalFloor" Type="Int32" />
+          <Property Name="FloorNum" Type="Int32" />
+          <Property Name="FurnishedType" Type="Boolean" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectSociety" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CarParking" Type="Boolean" Nullable="false" />
+          <Property Name="FacingId" Type="Int32" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BikeParking" Type="Boolean" Nullable="false" />
+          <Property Name="Lift" Type="Boolean" Nullable="false" />
+          <Property Name="Water" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyFile">
+          <Key>
+            <PropertyRef Name="PhotoId" />
+          </Key>
+          <Property Name="PhotoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyId" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SIPAZModelStoreContainer" CdmEntityContainer="SIPAZEntities">
+          <EntitySetMapping Name="AUs">
+            <EntityTypeMapping TypeName="SIPAZModel.AU">
+              <MappingFragment StoreEntitySet="AU">
+                <ScalarProperty Name="AU_ID" ColumnName="AU_ID" />
+                <ScalarProperty Name="AU1" ColumnName="AU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faces">
+            <EntityTypeMapping TypeName="SIPAZModel.Face">
+              <MappingFragment StoreEntitySet="Face">
+                <ScalarProperty Name="FaceId" ColumnName="FaceId" />
+                <ScalarProperty Name="Face1" ColumnName="Face" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="SIPAZModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SIPAZModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyRents">
+            <EntityTypeMapping TypeName="SIPAZModel.PropertyRent">
+              <MappingFragment StoreEntitySet="PropertyRent">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Water" ColumnName="Water" />
+                <ScalarProperty Name="Lift" ColumnName="Lift" />
+                <ScalarProperty Name="BikeParking" ColumnName="BikeParking" />
+                <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="FacingId" ColumnName="FacingId" />
+                <ScalarProperty Name="CarParking" ColumnName="CarParking" />
+                <ScalarProperty Name="ProjectSociety" ColumnName="ProjectSociety" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FurnishedType" ColumnName="FurnishedType" />
+                <ScalarProperty Name="FloorNum" ColumnName="FloorNum" />
+                <ScalarProperty Name="TotalFloor" ColumnName="TotalFloor" />
+                <ScalarProperty Name="BathroomNum" ColumnName="BathroomNum" />
+                <ScalarProperty Name="MaintenanceCharges" ColumnName="MaintenanceCharges" />
+                <ScalarProperty Name="SecurityAmount" ColumnName="SecurityAmount" />
+                <ScalarProperty Name="ExpectedPrice" ColumnName="ExpectedPrice" />
+                <ScalarProperty Name="AvailableDate" ColumnName="AvailableDate" />
+                <ScalarProperty Name="AvailableStatus" ColumnName="AvailableStatus" />
+                <ScalarProperty Name="ADType" ColumnName="ADType" />
+                <ScalarProperty Name="AU" ColumnName="AU" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+                <ScalarProperty Name="Locality" ColumnName="Locality" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyFiles">
+            <EntityTypeMapping TypeName="SIPAZModel.PropertyFile">
+              <MappingFragment StoreEntitySet="PropertyFiles">
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
