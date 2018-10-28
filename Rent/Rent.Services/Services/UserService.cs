@@ -11,7 +11,7 @@ namespace Rent.Services
 {
     public class UserService:Connection,IUser
     {
-        public void AddUser(UserModel userModel)
+        public UserModel AddUser(UserModel userModel)
         {
             _db.Users.Add(new User()
             {
@@ -24,7 +24,8 @@ namespace Rent.Services
                 RoleId=userModel.RoleId,
                 IsActive=true
             });
-            _db.SaveChanges();
+            userModel.UserId= _db.SaveChanges();
+            return userModel;
         }
 
         public UserModel GetUserDetails(UserModel model)
@@ -39,6 +40,15 @@ namespace Rent.Services
                 model.IsUserExist = false;
             }
             return model;
+        }
+
+        public bool IsEmailExist(string Email)
+        {
+          return  !_db.Users.Any(x => x.Email == Email);
+        }
+        public bool IsMobileExist(string Mobile)
+        {
+            return !_db.Users.Any(x => x.Mobile == Mobile);
         }
     }
 }

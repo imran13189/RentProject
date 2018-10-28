@@ -21,13 +21,25 @@ namespace Rent.API
         {
             try
             {
-                _user.AddUser(userModel);
-                return true;
+               return _user.AddUser(userModel);
+                
             }
             catch(Exception e)
                 {
                 throw;
             }
+        }
+
+        [HttpGet]
+        public bool IsEmailExist(string Email)
+        {
+          return  _user.IsEmailExist(Email);
+        }
+
+        [HttpGet]
+        public bool IsMobileExist(string Mobile)
+        {
+            return _user.IsMobileExist(Mobile);
         }
     }
 }

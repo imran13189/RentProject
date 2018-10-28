@@ -1,6 +1,6 @@
 ﻿
 <script>
-    $_AddUser = "@Url.HttpRouteUrl("DefaultApi", new { controller= "UserAPI", action= "AddUser" })"
+    $_AddUser = "@Url.HttpRouteUrl("DefaultApi", new { controller= "UserAPI", action= "Register" })"
     $_GetCities = "@Url.HttpRouteUrl("DefaultApi", new { controller= "LocationAPI", action= "GetCitites" })"
     $_GetState = "@Url.HttpRouteUrl("DefaultApi", new { controller= "LocationAPI", action= "GetStates" })"
     $_GetProperty = "@Url.HttpRouteUrl("DefaultApi", new { controller= "LocationAPI", action= "GetProperty" })"
@@ -8,5 +8,10 @@
       $_SaveProperty = "@Url.HttpRouteUrl("DefaultApi", new { controller= "RentAPI", action= "SaveProperty" })"
  
     $_Login = "@Url.Action("Login", "Account")";
+
+    @*User api*@
+    $_IsEmailExist = "@Url.HttpRouteUrl("DefaultApi", new { controller= "UserAPI", action= "IsEmailExist" })"
+    $_IsMobileExist = "@Url.HttpRouteUrl("DefaultApi", new { controller= "UserAPI", action= "IsMobileExist" })"
+
 
 </script>

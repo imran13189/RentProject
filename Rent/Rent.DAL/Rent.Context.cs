@@ -29,7 +29,7 @@ namespace Rent.DAL
         public virtual DbSet<Face> Faces { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<PropertyRent> PropertyRents { get; set; }
         public virtual DbSet<PropertyFile> PropertyFiles { get; set; }
+        public virtual DbSet<PropertyRent> PropertyRents { get; set; }
     }
 }

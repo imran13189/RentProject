@@ -53,7 +53,7 @@
           <Property Name="CityId" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="Mobile" Type="varchar" MaxLength="20" />
-          <Property Name="PropertyName" Type="varchar" MaxLength="10" />
+          <Property Name="PropertyName" Type="varchar(max)" />
           <Property Name="BikeParking" Type="bit" Nullable="false" />
           <Property Name="Lift" Type="bit" Nullable="false" />
           <Property Name="Water" Type="bit" Nullable="false" />
@@ -121,8 +121,8 @@
           <EntitySet Name="Faces" EntityType="Self.Face" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="Users" EntityType="SIPAZModel.User" />
-          <EntitySet Name="PropertyRents" EntityType="SIPAZModel.PropertyRent" />
           <EntitySet Name="PropertyFiles" EntityType="SIPAZModel.PropertyFile" />
+          <EntitySet Name="PropertyRents" EntityType="SIPAZModel.PropertyRent" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -137,6 +137,14 @@
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PropertyFile">
+          <Key>
+            <PropertyRef Name="PhotoId" />
+          </Key>
+          <Property Name="PhotoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyId" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="PropertyRent">
           <Key>
@@ -164,7 +172,7 @@
           <Property Name="CityId" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PropertyName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="BikeParking" Type="Boolean" Nullable="false" />
           <Property Name="Lift" Type="Boolean" Nullable="false" />
           <Property Name="Water" Type="Boolean" Nullable="false" />
@@ -172,14 +180,6 @@
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PropertyFile">
-          <Key>
-            <PropertyRef Name="PhotoId" />
-          </Key>
-          <Property Name="PhotoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PropertyId" Type="Int64" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -226,6 +226,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PropertyFiles">
+            <EntityTypeMapping TypeName="SIPAZModel.PropertyFile">
+              <MappingFragment StoreEntitySet="PropertyFiles">
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PropertyRents">
             <EntityTypeMapping TypeName="SIPAZModel.PropertyRent">
               <MappingFragment StoreEntitySet="PropertyRent">
@@ -259,15 +268,6 @@
                 <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
                 <ScalarProperty Name="Locality" ColumnName="Locality" />
                 <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PropertyFiles">
-            <EntityTypeMapping TypeName="SIPAZModel.PropertyFile">
-              <MappingFragment StoreEntitySet="PropertyFiles">
-                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

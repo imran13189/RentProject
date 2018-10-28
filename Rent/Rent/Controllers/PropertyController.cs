@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Rent.Filters;
 namespace Rent.Controllers
 {
-    //[AuthenticateFilter]
+    [AuthenticateFilter]
     public class PropertyController : Controller
     {
         // GET: Property

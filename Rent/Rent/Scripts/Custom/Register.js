@@ -1,15 +1,5 @@
 ﻿$(document).ready(function () {
 
-    //$("#btnregister").click(function () {
-    //    debugger;
-    
-    //});
-
-    
-
-
-
-
     // Initialize form validation on the registration form.
     // It has the name attribute "registration"
     $("#frmlogin").validate({
@@ -66,12 +56,26 @@
                 required: true,
                 // Specify that email should be validated
                 // by the built-in "email" rule
-                email: true
+                email: true,
+                remote: {
+                    url: $_IsEmailExist,
+                    type: "get"
+                }
+            },
+            Mobile: {
+                matches: "[0-9]+",  // <-- no such method called "matches"!
+                minlength: 10,
+                maxlength: 10,
+                remote: {
+                    url: $_IsMobileExist,
+                    type: "get"
+                }
             },
             Password: {
                 required: true,
                 minlength: 5
-            }
+            },
+            
         },
         // Specify validation error messages
         messages: {
@@ -79,13 +83,22 @@
             //lastname: "Please enter your lastname",
             Password: {
                 required: "Please provide a password",
-                minlength: "Your password must be at least 5 characters long"
+                maxlength: "Your password must be at least 5 characters long"
             },
-            Email: "Please enter a valid email address"
+            Email: {
+                required: "Please enter a valid email address",
+                remote: "Email already in use!"
+            },
+            Mobile: {
+                maxlength: "Enter 10 digit mobile number",
+                minlength: "Enter 10 digit mobile number",
+                remote:"Mobile already exist"
+            }
         },
         // Make sure the form is submitted to the destination defined
         // in the "action" attribute of the form when valid
-        submitHandler: function (form,e) {
+        submitHandler: function (form, e) {
+            debugger;
             e.preventDefault();
             debugger;
             var usermodel = JSON.parse(JSON.stringify($(form).serializeArray()));
