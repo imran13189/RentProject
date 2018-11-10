@@ -10,5 +10,6 @@ namespace Rent.Services.Interfaces
     {
         PropertyRentModel SaveRentProperty(PropertyRentModel model);
         bool SaveFile(PropertyFileModel file);
+        IList<PropertyRentSearchModel> GetProperties(PropertyRentSearchModel SearchModel);
     }
 }

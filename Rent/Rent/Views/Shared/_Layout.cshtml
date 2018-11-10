@@ -35,14 +35,15 @@
     <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/responsive.css")">
     <script src="~/Content/assets/js/jquery-3.3.1.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
+    <!--Plugins-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbJhQFlfv3ZkMY0-IL2M_ojTFul5kzU40&libraries=places"></script>
     @Html.Partial("_UrlVariables")
 </head>
-<body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
-    <!-- Body content -->
-    
+    <body>
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <!-- Body content -->
     <!--End top header -->
     <nav class="navbar navbar-default ">
         <div class="container">
@@ -61,69 +62,64 @@
                 @if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.open('@Url.Action("Logout", "Account")')" data-wow-delay="0.45s">Log out</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick="location.href='@Url.Action("Logout", "Account")'" data-wow-delay="0.45s">Log out</button>
                         @*<button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('@Url.Action("Index","Account")')" data-wow-delay="0.48s">Submit</button>*@
                     </div>
                 }
                 else
                 {
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.open('@Url.Action("Login", "Account")')" data-wow-delay="0.45s">Login</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick="location.href='@Url.Action("Login", "Account")'" data-wow-delay="0.45s">Login</button>
                         @*<button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('@Url.Action("Index","Account")')" data-wow-delay="0.48s">Submit</button>*@
                     </div>
                 }
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/">Home</a></li>
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Rent<b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/">Post your property</a></li>
-                        <li class="dropdown ymm-sw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">My Dashboard <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contact.html">Contact</a></li>
-                    </ul>
+                <ul class="main-nav nav navbar-nav navbar-right">
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/">Home</a></li>
+                    <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                        <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Rent<b class="caret"></b></a>
+                        <ul class="dropdown-menu navbar-nav">
+                            <li>
+                                <a href="index-2.html">Home Style 2</a>
+                            </li>
+                            <li>
+                                <a href="index-3.html">Home Style 3</a>
+                            </li>
+                            <li>
+                                <a href="index-4.html">Home Style 4</a>
+                            </li>
+                            <li>
+                                <a href="index-5.html">Home Style 5</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/">Post your property</a></li>
+                    <li class="dropdown ymm-sw" data-wow-delay="0.1s">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">My Dashboard <b class="caret"></b></a>
+                        <ul class="dropdown-menu navbar-nav">
+                            <li>
+                                <a href="index-2.html">Home Style 2</a>
+                            </li>
+                            <li>
+                                <a href="index-3.html">Home Style 3</a>
+                            </li>
+                            <li>
+                                <a href="index-4.html">Home Style 4</a>
+                            </li>
+                            <li>
+                                <a href="index-5.html">Home Style 5</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contact.html">Contact</a></li>
+                </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <!-- End of nav bar -->
-    
     <!-- property area -->
-    
     <!--Welcome area -->
-    
     <!--TESTIMONIALS -->
-    
     <!-- Count area -->
-    
     <!-- boy-sale area -->
     @RenderBody();
     <!-- Footer area-->
@@ -261,5 +257,5 @@
     <script src="@Url.Content("~/Content/assets/js/icheck.min.js")"></script>
     <script src="@Url.Content("~/Content/assets/js/price-range.js")"></script>
     <script src="@Url.Content("~/Content/assets/js/main.js")"></script>
-</body>
+    </body>
 </html>

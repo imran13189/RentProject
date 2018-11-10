@@ -1,9 +1,8 @@
 ﻿$(document).ready(function () {
 
-    $.get($_GetProperty, { PropertyId: $("#PropertyId").val() }, function (data) {
-
-
-        
+    $.get($_GetProperties, { UserId: $("#userId").val() }, function (result) {
+        var rentproperties = jQuery.parseJSON(result);
+        $('#serverTemplate').tmpl(rentproperties).appendTo('#list-type');
     });
 
 });

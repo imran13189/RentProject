@@ -40,14 +40,26 @@
                             <div class="tab-pane" id="step1">
                                 <div class="row p-b-15  ">
                                     <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
-                                    @*<div class="col-sm-4 col-sm-offset-1">
-                                        <div class="picture-container">
+                                    <div class="col-sm-4 col-sm-offset-1">
+                                        @*<div class="picture-container">
                                             <div class="picture">
                                                 <img src="assets/img/default-property.jpg" class="picture-src" id="wizardPicturePreview" title="" />
                                                 <input type="file" id="wizard-picture">
                                             </div>
-                                        </div>
-                                    </div>*@
+                                        </div>*@
+                                          <div class="form-group">
+                                                <label>Property State :</label>
+                                                <select id="ddlstate" data-live-search="true" data-live-search-style="begins" title="Select your state"></select>
+                                            </div>
+                                           <div class="form-group">
+                                                <label>Property City :</label>
+                                                <select id="ddlcity" name="CityId" data-live-search="true" data-live-search-style="begins" title="Select your city"></select>
+                                            </div>
+                                          <div class="form-group">
+                                                <label>Locality :</label>
+                                                <input name="Locality" type="text" class="form-control" placeholder="Enter Locality">
+                                            </div>
+                                    </div>
                                     <div class="col-sm-6 col-sm-offset-1">
                                         <div class="form-group">
                                             <label>Property name <small>(required)</small></label>
@@ -77,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
-                                        <div class="col-sm-3">
+                                        @*<div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Property State :</label>
                                                 <select id="ddlstate" data-live-search="true" data-live-search-style="begins" title="Select your state"></select>
@@ -88,17 +100,17 @@
                                                 <label>Property City :</label>
                                                 <select id="ddlcity" name="CityId" data-live-search="true" data-live-search-style="begins" title="Select your city"></select>
                                             </div>
-                                        </div>
+                                        </div>*@
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Area  :</label>
-                                                <input name="PropertyName" type="text" class="form-control" placeholder="Super villa ...">
+                                                <input name="Area" type="text" class="form-control" placeholder="Super villa ...">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Area Type  :</label>
-                                                <select id="basic" class="selectpicker show-tick form-control">
+                                                <select id="basic" name="AU" class="selectpicker show-tick form-control">
                                                     <option value="1">Sq Ft</option>
                                                     <option value="2">Sq Meter</option>
                                                     <option value="3">Sq Yard</option>
@@ -218,13 +230,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Expected Price <small>(required)</small></label>
-                                            <input name="ExpectedPrice" type="text" class="form-control" placeholder="">
+                                            <input name="ExpectedPrice" type="text" class="form-control" placeholder="Enter expected price">
                                         </div>
                                         <div class="form-group">
-                                            <label>Security Amount<small>(required)</small></label>
+                                            <label>Security Amount<small></small></label>
                                             <input name="SecurityAmount" type="text" class="form-control" placeholder="">
                                         <div class="form-group">
-                                            <label>Maintenance Charges <small>(empty if you wanna use default phone number)</small></label>
+                                            <label>Maintenance Charges </label>
                                             <input name="MaintenanceCharges" type="text" class="form-control" placeholder="">
                                         </div>
                                     </div>
@@ -273,7 +285,7 @@
                                             </p>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" /> <strong>Accept termes and conditions.</strong>
+                                                    <input name="aggreement" type="checkbox" /> <strong>Accept termes and conditions.</strong>
                                                 </label>
                                             </div>
                                         </div>
@@ -284,6 +296,7 @@
                         </div>
                         <div class="wizard-footer">
                             <div class="pull-right">
+                                <input id="userId" type="hidden" name="UserId" value="@Rent.Common.SessionManager.LoggedInUser.UserID" />
                                 <input type='button' class='btn btn-next btn-primary' name='next' value='Next' />
                                 <input type='submit' class='btn btn-finish btn-primary' id="btnfinish" name='finish' value='Finish' />
                             </div>

@@ -44,5 +44,6 @@ namespace Rent.DAL
         public System.DateTime ModifiedDate { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsActive { get; set; }
+        public long UserId { get; set; }
     }
 }

@@ -27,13 +27,15 @@ namespace Rent.Services
             userModel.UserId= _db.SaveChanges();
             return userModel;
         }
-
         public UserModel GetUserDetails(UserModel model)
         {
            User user= _db.Users.FirstOrDefault(x => x.Email == model.Email && x.Password == model.Password);
             if(user!=null)
             {
+                model.UserId = user.UserId;
+                model.Email = user.Email;
                 model.IsUserExist = true;
+                model.RoleId = user.RoleId;
                     }
             else
             {
@@ -41,7 +43,6 @@ namespace Rent.Services
             }
             return model;
         }
-
         public bool IsEmailExist(string Email)
         {
           return  !_db.Users.Any(x => x.Email == Email);

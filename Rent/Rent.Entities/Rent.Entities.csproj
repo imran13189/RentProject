@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\PropertiesViewModel.cs" />
+    <Compile Include="Model\Pager.cs" />
     <Compile Include="Model\PropertyFileModel.cs" />
     <Compile Include="Model\PropertyRentModel.cs" />
     <Compile Include="Model\PropertyType.cs" />
+    <Compile Include="Model\PropertyRentSearchModel.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\LoggedInUserDetails.cs" />

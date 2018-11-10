@@ -61,6 +61,7 @@
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -180,6 +181,7 @@
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -238,6 +240,7 @@
           <EntitySetMapping Name="PropertyRents">
             <EntityTypeMapping TypeName="SIPAZModel.PropertyRent">
               <MappingFragment StoreEntitySet="PropertyRent">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />

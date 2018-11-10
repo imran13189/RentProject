@@ -22,6 +22,7 @@ namespace Rent.Services
 
 
             //        });
+            
             _cmd.Parameters.AddRange(new SqlParameter[] {
                  new SqlParameter("@StateId",StateId ),
             });

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rent.Entities.Model
 {
-    public class PropertyRentModel
+    public class PropertyRentSearchModel
     {
         public long PropertyId { get; set; }
         public string Locality { get; set; }
@@ -34,7 +34,16 @@ namespace Rent.Entities.Model
         public bool BikeParking { get; set; }
         public bool Lift { get; set; }
         public bool Water { get; set; }
-        public string[] Photos{get;set;}
+        public string[] Photos { get; set; }
         public long UserId { get; set; }
+
+        //PageProperties
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
+        public int TotalPages { get; set; }
+        public int TotalRows { get; set; }
+
+        public Pager pager { get; set; }
+        
     }
 }

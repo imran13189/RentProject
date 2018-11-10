@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Rent.Services.Interfaces;
+using System.Web.Script.Serialization;
+
 namespace Rent.Controllers
 {
     public class AccountController : Controller
@@ -19,7 +21,11 @@ namespace Rent.Controllers
         // GET: Account
         public ActionResult Login()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            return RedirectToAction("Index", "Property");
+            else
+                return View();
+
         }
 
         [HttpPost]
@@ -33,9 +39,22 @@ namespace Rent.Controllers
             if (model.IsUserExist)
             {
                 SessionManager.FillSession(data.UserId, data.Email, data.Name, data.RoleId);
-                FormsAuthentication.SetAuthCookie(data.Email, false);
-                //HttpCookie cookie = GenerateAuthTicketforSRentUser(data,"Rent");
-                //Response.Cookies.Add(cookie);
+                //FormsAuthentication.SetAuthCookie(data.Email, false);
+                var serializer = new JavaScriptSerializer();
+                string userData = serializer.Serialize(data);
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+             data.Email,
+             DateTime.Now,
+             DateTime.Now.AddDays(30),
+             true,
+             userData,
+             FormsAuthentication.FormsCookiePath);
+                // Encrypt the ticket.
+                string encTicket = FormsAuthentication.Encrypt(ticket);
+                // Create the cookie.
+                Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+
                 if (RoleId==2)
                 {
                     return RedirectToAction("Index", "Property");

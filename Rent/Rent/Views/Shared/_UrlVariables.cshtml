@@ -5,13 +5,12 @@
     $_GetState = "@Url.HttpRouteUrl("DefaultApi", new { controller= "LocationAPI", action= "GetStates" })"
     $_GetProperty = "@Url.HttpRouteUrl("DefaultApi", new { controller= "LocationAPI", action= "GetProperty" })"
 
-      $_SaveProperty = "@Url.HttpRouteUrl("DefaultApi", new { controller= "RentAPI", action= "SaveProperty" })"
- 
+    $_SaveProperty = "@Url.HttpRouteUrl("DefaultApi", new { controller= "RentAPI", action= "SaveProperty" })"
+     $_GetProperties = "@Url.HttpRouteUrl("DefaultApi", new { controller= "RentAPI", action= "GetProperties" })"
     $_Login = "@Url.Action("Login", "Account")";
+    $_GetUserProperties = "@Url.Action("GetProperties", "Property")";
 
     @*User api*@
     $_IsEmailExist = "@Url.HttpRouteUrl("DefaultApi", new { controller= "UserAPI", action= "IsEmailExist" })"
     $_IsMobileExist = "@Url.HttpRouteUrl("DefaultApi", new { controller= "UserAPI", action= "IsMobileExist" })"
-
-
 </script>

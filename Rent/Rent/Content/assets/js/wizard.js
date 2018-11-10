@@ -31,7 +31,12 @@ $(document).ready(function () {
                 return validateSecondStep();
             } else if (index == 3) {
                 return validateThirdStep();
-            } //etc. 
+            } else if (index == 4) {
+                return validateThirdStep();
+            }
+            else if (index == 5) {
+                return validateThirdStep();
+            }//etc.
 
         },
         onTabClick: function (tab, navigation, index) {
@@ -172,7 +177,11 @@ function validateSecondStep() {
 
 function validateThirdStep() {
     //code here for third step
-
+    if (!$(".wizard-card form").valid()) {
+        console.log('invalid');
+        return false;
+    }
+    return true;
 
 }
 

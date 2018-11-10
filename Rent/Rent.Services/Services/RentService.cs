@@ -44,8 +44,10 @@ namespace Rent.Services
                 rent.TotalFloor = model.TotalFloor;
                 rent.Water = model.Water;
                 rent.ModifiedDate = DateTime.UtcNow;
+                rent.UserId = model.UserId;
                 _db.PropertyRents.Add(rent);
-                model.PropertyId= _db.SaveChanges();
+                _db.SaveChanges();
+                model.PropertyId = rent.PropertyId;
                 return model;
             }
             catch { throw; }
@@ -68,5 +70,19 @@ namespace Rent.Services
                 return false;
             }
         }
+
+        public IList<PropertyRentSearchModel> GetProperties(PropertyRentSearchModel SearchModel)
+        {
+            
+            _cmd.Parameters.AddRange(new SqlParameter[] {
+                 new SqlParameter("@UserId",SearchModel.UserId ),
+                 new SqlParameter("@PageNumber",SearchModel.PageNumber ),
+                 new SqlParameter("@PageSize",SearchModel.PageSize ),
+                 new SqlParameter("@PropertyName",SearchModel.PropertyName ),
+            });
+            _cmd.CommandText = "GetProperties";
+            return GetList<PropertyRentSearchModel>();
+        }
+
     }
 }

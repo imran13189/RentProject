@@ -44,13 +44,55 @@
             // on the right side
             PropertyName: {
                 required: true
-
+            },
+            CityId: {
+                required: true
+            },
+            Locality: {
+                required: true
+            },
+            PropertyType: {
+                required: true
+            },
+            Mobile: {
+                required: true,
+                number: true
+            },
+            Area: {
+                required: true,
+                number: true
             }
-           
+            ,
+            ExpectedPrice:
+            {
+                required: true,
+                number: true
+            },
+            aggreement:
+            {
+                required: true
+            }
+
         },
         // Specify validation error messages
         messages: {
-            Name: "Please enter your full name",
+            PropertyName: "Please enter property name",
+            CityId: "Please select city",
+            Locality: "Please enter locality",
+            PropertyType: "Please select property type",
+            Mobile: {
+                required: "Please enter valid mobile number",
+                    number: "Enter number only"
+            },
+            Area: {
+                required: "Please enter area",
+                number: "Enter numeric value only"
+            },
+            ExpectedPrice: {
+                required: "Please enter expected price for property",
+                number:"Decimal Numbers Only"
+                }
+            
         },
         // Make sure the form is submitted to the destination defined
         // in the "action" attribute of the form when valid
@@ -59,20 +101,7 @@
 
             //var formData = new FormData(form1[0]);
             var usermodel = JSON.parse(JSON.stringify($(form).serializeArray()));
-            //var files = $("#propertyimages").get(0).files;  
-            //for (var i = 0; i < files.length; i++) {
-            //    var file = files[i];
-
-            //    // Check the file type.
-            //    if (!file.type.match('image.*')) {
-            //        continue;
-            //    }
-
-            //    // Add the file to the request.
-            //    formData.append('Photos', file, file.name);
-               
-               
-            //}
+           
             debugger;
 
             

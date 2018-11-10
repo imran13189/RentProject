@@ -32,9 +32,9 @@
         },
         // Make sure the form is submitted to the destination defined
         // in the "action" attribute of the form when valid
-        submitHandler: function (form) {
+        submitHandler: function (form,e) {
             debugger;
-            ee.preventDefault();
+            e.preventDefault();
             debugger;
             var usermodel = JSON.parse(JSON.stringify($(form).serializeArray()));
             Login(usermodel);
@@ -63,7 +63,7 @@
                 }
             },
             Mobile: {
-                matches: "[0-9]+",  // <-- no such method called "matches"!
+                //matches: "[0-9]+",  // <-- no such method called "matches"!
                 minlength: 10,
                 maxlength: 10,
                 remote: {
