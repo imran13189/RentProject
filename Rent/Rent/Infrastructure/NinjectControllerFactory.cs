@@ -32,7 +32,8 @@ namespace Rent.Infrastructure
         {
             this._kernel.Bind<IUser>().To<UserService>();
             this._kernel.Bind<ILocation>().To<LocationService>();
-
+            this._kernel.Bind<IRent>().To<RentService>();
+           
         }
     }
 }

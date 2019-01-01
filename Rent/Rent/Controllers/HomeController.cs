@@ -15,7 +15,7 @@ namespace Rent.Controllers
             return View();
         }
 
-        public ActionResult PropertyDetails()
+        public ActionResult PropertyDetails(string id)
         {
             ViewBag.Title = "Home Page";
 

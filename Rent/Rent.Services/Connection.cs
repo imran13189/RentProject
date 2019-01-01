@@ -47,6 +47,29 @@ namespace Rent.Services
 
         }
 
+        public T GetProperty<T>()
+        {
+            try
+            {
+                if (this._db.Database.Connection.State == ConnectionState.Closed)
+                    this._db.Database.Connection.Open();
+                this._cmd.CommandType = CommandType.StoredProcedure;
+                this._reader = this._cmd.ExecuteReader();
+                T data = ((IObjectContextAdapter)this._db).ObjectContext.Translate<T>(this._reader).FirstOrDefault();
+                return data;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (this._db.Database.Connection.State == ConnectionState.Open)
+                    this._db.Database.Connection.Close();
+            }
+
+        }
+
         //public static List<T> ToListof<T>(this DataTable dt)
         //{
         //    const BindingFlags flags = BindingFlags.Public | BindingFlags.Instance;

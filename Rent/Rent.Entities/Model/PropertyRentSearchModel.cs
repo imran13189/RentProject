@@ -36,7 +36,7 @@ namespace Rent.Entities.Model
         public bool Water { get; set; }
         public string[] Photos { get; set; }
         public long UserId { get; set; }
-
+        public string FileName { get; set; }
         //PageProperties
         public int PageSize { get; set; }
         public int PageNumber { get; set; }

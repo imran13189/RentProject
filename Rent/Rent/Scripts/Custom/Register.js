@@ -128,12 +128,20 @@
                     location.href = "/";
                 }
                 else {
-                    location.href = "/Account/Login";
+                    //location.href = "/Account/Login";
+                    $("#errormsg").show();
                 }
             }
         });
     }
 
-
-
+    $("#btnsignup").click(function () {
+        $("#logindiv").hide();
+        $("#registerdiv").show();
+    });
+    $("#btnlogindiv").click(function () {
+        $("#registerdiv").hide();
+        $("#logindiv").show();
+       
+    });
 });

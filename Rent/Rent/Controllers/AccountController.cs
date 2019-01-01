@@ -57,14 +57,14 @@ namespace Rent.Controllers
 
                 if (RoleId==2)
                 {
-                    return RedirectToAction("Index", "Property");
+                    return RedirectToAction("Rent", "Property");
                 }
 
                 //return RedirectToAction("Index", "Account");
             }
 
             //return RedirectToAction("Index","Account");
-            return null;
+            return Json(false);
         }
         public ActionResult LogOut()
         {

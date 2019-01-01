@@ -19,8 +19,11 @@ namespace Rent.Controllers
         }
 
         // GET: Property
-        public ActionResult Index()
+        public ActionResult Rent(int? id)
         {
+            if (id.HasValue)
+              return View(_rent.GetRentProperty(id.Value));
+
             return View();
         }
 
@@ -35,7 +38,7 @@ namespace Rent.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetProperties(PropertyRentSearchModel searchModel)
+        public ActionResult _UserProperties(PropertyRentSearchModel searchModel)
         {
             //var dummyItems = Enumerable.Range(1, 150).Select(x => "Item " + x);
             //var pager = new Pager(dummyItems.Count(), page);
@@ -46,10 +49,17 @@ namespace Rent.Controllers
             //    Pager = pager
             //};
             PropertiesViewModel model = new PropertiesViewModel();
-            model.SearchModel = _rent.GetProperties(searchModel);
-            model.pager = new Pager(model.SearchModel.FirstOrDefault().TotalRows, searchModel.PageNumber);
+            try
+            {
+                model.SearchModel = _rent.GetProperties(searchModel);
+                if(model.SearchModel.Count>0)
+                    model.pager = new Pager(model.SearchModel.FirstOrDefault().TotalRows, searchModel.PageNumber,searchModel.PageSize);
+                else
+                    model.pager = new Pager(2, searchModel.PageNumber);
 
-            return View();
+            }
+            catch { }
+            return View(model);
         }
     }
 }

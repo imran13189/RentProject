@@ -1,5 +1,7 @@
 ﻿@model Rent.Entities.Model.Pager
-
+@{ 
+    Layout = null;
+}
 <div class="section">
     <div class="pull-right">
         <div class="pagination">
@@ -7,33 +9,28 @@
                 @if (Model.CurrentPage > 1)
                 {
                     <li>
-                        <a href="~/Home/Index">First</a>
+                        <a class="pagelink" href="JavaScript:Void(0);" value="1">First</a>
                     </li>
                     <li>
-                        <a href="~/Home/Index?page=@(Model.CurrentPage - 1)">Previous</a>
+                        <a  class="pagelink" href="JavaScript:Void(0);" value="@(Model.CurrentPage - 1)">Previous</a>
                     </li>
                 }
                 @for (var page = Model.StartPage; page <= Model.EndPage; page++)
                 {
-                    <li class="@(page == Model.CurrentPage ? "active" : "")">
-                        <a href="~/Home/Index?page=@page">@page</a>
+                    <li  class="@(page == Model.CurrentPage ? "active" : "")">
+                        <a class="pagelink" href="JavaScript:Void(0);" value="@page">@page</a>
                     </li>
                 }
                 @if (Model.CurrentPage < Model.TotalPages)
                 {
                     <li>
-                        <a href="~/Home/Index?page=@(Model.CurrentPage + 1)">Next</a>
+                        <a class="pagelink" value="@(Model.CurrentPage + 1)" href="JavaScript:Void(0);">Next</a>
                     </li>
                     <li>
-                        <a href="~/Home/Index?page=@(Model.TotalPages)">Last</a>
+                        <a class="pagelink" value="@(Model.TotalPages)" href="JavaScript:Void(0);">Last</a>
                     </li>
                 }
-                @*<li><a href="#">Prev</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">Next</a></li>*@
+              
 
             </ul>
         </div>

@@ -1,5 +1,5 @@
 ﻿
-<script src="~/Scripts/Custom/UserProperties.js"></script>
+
 
 <div class="content-area recent-property" style="background-color: #FFF;">
     <div class="container">
@@ -62,10 +62,9 @@
     </div>
 </div>
 
-<input id="userId" value="@Rent.Common.SessionManager.LoggedInUser.UserID" />
+<input id="userId" type="hidden" value="@Rent.Common.SessionManager.LoggedInUser.UserID" />
 
 @*@Html.Partial("_UserProperties");*@
-
 
 
 <script src="~/Scripts/Custom/UserProperties.js"></script>

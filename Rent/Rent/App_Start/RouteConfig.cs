@@ -13,6 +13,7 @@ namespace Rent
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("PropertyDetails", "{Property}/{id}/{*catchall}", new { controller = "Home", action = "PropertyDetails", id = UrlParameter.Optional });
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

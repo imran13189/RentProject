@@ -111,7 +111,7 @@
                 data: usermodel,
                 success: function (data) {
                     debugger;
-                    window.location.href = "Property/PropertyFiles?PropertyId="+data.PropertyId;
+                    window.location.href = $_SavePropertyFile+"?PropertyId="+data.PropertyId;
                     //window.open($_Login + "?Email=" + usermodel[1].value + "&Password=" + usermodel[3].value+"&RoleId="+2);
                 }
             });

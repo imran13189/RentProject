@@ -73,7 +73,6 @@ namespace Rent.Services
 
         public IList<PropertyRentSearchModel> GetProperties(PropertyRentSearchModel SearchModel)
         {
-            
             _cmd.Parameters.AddRange(new SqlParameter[] {
                  new SqlParameter("@UserId",SearchModel.UserId ),
                  new SqlParameter("@PageNumber",SearchModel.PageNumber ),
@@ -84,5 +83,13 @@ namespace Rent.Services
             return GetList<PropertyRentSearchModel>();
         }
 
+        public PropertyRentModel GetRentProperty(int PropertyId)
+        {
+            _cmd.Parameters.AddRange(new SqlParameter[] {
+                 new SqlParameter("@PropertyId",PropertyId)
+            });
+            _cmd.CommandText = "SP_GetRentProperty";
+            return GetProperty<PropertyRentModel>();
+        }
     }
 }

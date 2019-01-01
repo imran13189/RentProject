@@ -6,9 +6,11 @@
     $_GetProperty = "@Url.HttpRouteUrl("DefaultApi", new { controller= "LocationAPI", action= "GetProperty" })"
 
     $_SaveProperty = "@Url.HttpRouteUrl("DefaultApi", new { controller= "RentAPI", action= "SaveProperty" })"
-     $_GetProperties = "@Url.HttpRouteUrl("DefaultApi", new { controller= "RentAPI", action= "GetProperties" })"
+    $_GetProperties = "@Url.HttpRouteUrl("DefaultApi", new { controller= "RentAPI", action= "GetProperties" })"
     $_Login = "@Url.Action("Login", "Account")";
-    $_GetUserProperties = "@Url.Action("GetProperties", "Property")";
+    $_GetUserProperties = "@Url.Action("_UserProperties", "Property")";
+    $_SavePropertyFile = "@Url.Action("PropertyFiles", "Property")";
+    $_SubmitProperty = "@Url.Action("Rent", "Property")";
 
     @*User api*@
     $_IsEmailExist = "@Url.HttpRouteUrl("DefaultApi", new { controller= "UserAPI", action= "IsEmailExist" })"
