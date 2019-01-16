@@ -115,6 +115,7 @@
       <DependentUpon>Rent.edmx</DependentUpon>
       <LastGenOutput>Rent.cs</LastGenOutput>
     </Content>
+    <Content Include="storeprocdure.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
