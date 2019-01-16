@@ -10,7 +10,7 @@ namespace Rent.Entities.Model
     {
         public long PropertyId { get; set; }
         public string Locality { get; set; }
-        public int PropertyType { get; set; }
+        public int PropertyTypeId { get; set; }
         public Nullable<decimal> Area { get; set; }
         public int AU { get; set; }
         public Nullable<int> ADType { get; set; }

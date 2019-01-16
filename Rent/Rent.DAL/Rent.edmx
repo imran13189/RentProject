@@ -33,7 +33,7 @@
           </Key>
           <Property Name="PropertyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Locality" Type="varchar(max)" />
-          <Property Name="PropertyType" Type="int" Nullable="false" />
+          <Property Name="PropertyTypeId" Type="int" Nullable="false" />
           <Property Name="Area" Type="decimal" Precision="18" Scale="0" />
           <Property Name="AU" Type="int" Nullable="false" />
           <Property Name="ADType" Type="int" />
@@ -153,7 +153,7 @@
           </Key>
           <Property Name="PropertyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Locality" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="PropertyType" Type="Int32" Nullable="false" />
+          <Property Name="PropertyTypeId" Type="Int32" Nullable="false" />
           <Property Name="Area" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="AU" Type="Int32" Nullable="false" />
           <Property Name="ADType" Type="Int32" />
@@ -268,7 +268,7 @@
                 <ScalarProperty Name="ADType" ColumnName="ADType" />
                 <ScalarProperty Name="AU" ColumnName="AU" />
                 <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+                <ScalarProperty Name="PropertyTypeId" ColumnName="PropertyTypeId" />
                 <ScalarProperty Name="Locality" ColumnName="Locality" />
                 <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
               </MappingFragment>

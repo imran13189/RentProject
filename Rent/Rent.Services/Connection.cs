@@ -20,7 +20,7 @@ namespace Rent.Services
         protected DbParameterCollection _parameter;
         public Connection()
         {
-            _db = new SIPAZEntities();
+            this._db = new SIPAZEntities();
             this._cmd = _db.Database.Connection.CreateCommand();
         }
 

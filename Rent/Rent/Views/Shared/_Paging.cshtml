@@ -1,0 +1,38 @@
+﻿@model Rent.Entities.Model.Pager
+@{ 
+    Layout = null;
+}
+
+ <div class="pull-right">
+        <div class="pagination">
+            <ul>
+                @if (Model.CurrentPage > 1)
+                {
+                    <li>
+                        <a class="pagelink" href="JavaScript:Void(0);" value="1">First</a>
+                    </li>
+                    <li>
+                        <a  class="pagelink" href="JavaScript:Void(0);" value="@(Model.CurrentPage - 1)">Previous</a>
+                    </li>
+                }
+                @for (var page = Model.StartPage; page <= Model.EndPage; page++)
+                {
+                    <li  class="@(page == Model.CurrentPage ? "active" : "")">
+                        <a class="pagelink" href="JavaScript:Void(0);" value="@page">@page</a>
+                    </li>
+                }
+                @if (Model.CurrentPage < Model.TotalPages)
+                {
+                    <li>
+                        <a class="pagelink" value="@(Model.CurrentPage + 1)" href="JavaScript:Void(0);">Next</a>
+                    </li>
+                    <li>
+                        <a class="pagelink" value="@(Model.TotalPages)" href="JavaScript:Void(0);">Last</a>
+                    </li>
+                }
+              
+
+            </ul>
+        </div>
+    </div>
+

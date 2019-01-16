@@ -18,7 +18,7 @@ namespace Rent.Services
             {
                 PropertyRent rent = new PropertyRent();
                 rent.Locality = model.Locality;
-                rent.PropertyType = model.PropertyType;
+                rent.PropertyTypeId = model.PropertyTypeId;
                 rent.SecurityAmount = model.SecurityAmount;
                 rent.MaintenanceCharges = model.MaintenanceCharges;
                 rent.Address = model.Address;
@@ -80,6 +80,20 @@ namespace Rent.Services
                  new SqlParameter("@PropertyName",SearchModel.PropertyName ),
             });
             _cmd.CommandText = "GetProperties";
+            return GetList<PropertyRentSearchModel>();
+        }
+
+
+        public IList<PropertyRentSearchModel> SearchRentProperty(PropertyRentSearchModel SearchModel)
+        {
+            _cmd.Parameters.AddRange(new SqlParameter[] {
+                 new SqlParameter("@PageNumber",SearchModel.PageNumber ),
+                 new SqlParameter("@PageSize",SearchModel.PageSize ),
+                 new SqlParameter("@Locality",SearchModel.PropertyName ),
+                 new SqlParameter("@PropertyTypeId",SearchModel.PropertyTypeId ),
+                 new SqlParameter("@Budget",SearchModel.ExpectedPrice )
+            });
+            _cmd.CommandText = "SearchRentProperty";
             return GetList<PropertyRentSearchModel>();
         }
 

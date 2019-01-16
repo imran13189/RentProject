@@ -91,6 +91,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Rent.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="builsql.bak" />
     <None Include="Rent.edmx.diagram">
       <DependentUpon>Rent.edmx</DependentUpon>
     </None>

@@ -6,11 +6,11 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f9c176d45a9a41189e79964b664ee6c2" Name="Diagram1">
         <EntityTypeShape EntityType="SIPAZModel.AU" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIPAZModel.Face" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIPAZModel.Role" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIPAZModel.User" Width="1.5" PointX="5.375" PointY="6.75" />
-        <EntityTypeShape EntityType="SIPAZModel.PropertyFile" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="SIPAZModel.PropertyRent" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SIPAZModel.Face" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIPAZModel.Role" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIPAZModel.User" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SIPAZModel.PropertyFile" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SIPAZModel.PropertyRent" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

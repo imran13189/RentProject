@@ -36,5 +36,6 @@
         }
     </div>
 </div>
-@{ Html.RenderPartial("_Paging", Model.pager);}
-
+<div class="section">
+    @{Html.RenderPartial("~/Views/Shared/_Paging.cshtml", Model.pager);}
+</div>

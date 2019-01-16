@@ -2,17 +2,15 @@
 
 
 
-    $('#ddlcity').selectpicker({
-    });
-
+    $('#ddlcity').selectpicker({});
+    $('#ddlproperty').selectpicker({});
     $.get($_GetState, function (data) {
 
         $.each(data, function (i, item) {
             $("#ddlstate").append("<option value=" + item.StateId + ">" + item.StateName+"</option>")
 
         });
-        $('#ddlstate').selectpicker({
-        });
+        $('#ddlstate').selectpicker({});
     });
 
     $("#ddlstate").change(function () {
@@ -31,8 +29,7 @@
             $("#ddlproperty").append("<option value=" + item.PropertyTypeId + ">" + item.PropertyTypeName + "</option>")
             
         });
-        $('.selectpicker').selectpicker({
-        });
+        $('#ddlproperty').selectpicker('refresh');
     });
 
 

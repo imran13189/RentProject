@@ -57,5 +57,11 @@ namespace Rent.API
         {
            return _rent.GetProperties(SearchModel);
         }
+
+        [HttpGet]
+        public IList<PropertyRentSearchModel> SearchProperties(PropertyRentSearchModel SearchModel)
+        {
+            return _rent.GetProperties(SearchModel);
+        }
     }
 }
