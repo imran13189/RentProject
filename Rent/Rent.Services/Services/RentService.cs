@@ -16,7 +16,10 @@ namespace Rent.Services
         {
             try
             {
-                PropertyRent rent = new PropertyRent();
+                var rent = new PropertyRent();
+                if(model.PropertyId>0)
+                   rent = _db.PropertyRents.FirstOrDefault(x => x.PropertyId == model.PropertyId);
+        
                 rent.Locality = model.Locality;
                 rent.PropertyTypeId = model.PropertyTypeId;
                 rent.SecurityAmount = model.SecurityAmount;
@@ -31,7 +34,6 @@ namespace Rent.Services
                 rent.BikeParking = model.BikeParking;
                 rent.CarParking = model.CarParking;
                 rent.CityId = model.CityId;
-                rent.Description = model.Description;
                 rent.ExpectedPrice = model.ExpectedPrice;
                 rent.FacingId = model.FacingId;
                 rent.FloorNum = model.FloorNum;
@@ -45,7 +47,12 @@ namespace Rent.Services
                 rent.Water = model.Water;
                 rent.ModifiedDate = DateTime.UtcNow;
                 rent.UserId = model.UserId;
-                _db.PropertyRents.Add(rent);
+                rent.BedRooms = model.BedRooms;
+
+                if (model.PropertyId == 0)
+                    _db.PropertyRents.Add(rent);
+
+
                 _db.SaveChanges();
                 model.PropertyId = rent.PropertyId;
                 return model;
@@ -91,7 +98,9 @@ namespace Rent.Services
                  new SqlParameter("@PageSize",SearchModel.PageSize ),
                  new SqlParameter("@Locality",SearchModel.PropertyName ),
                  new SqlParameter("@PropertyTypeId",SearchModel.PropertyTypeId ),
-                 new SqlParameter("@Budget",SearchModel.ExpectedPrice )
+                 new SqlParameter("@City",SearchModel.CityId ),
+                 new SqlParameter("@PriceFrom",SearchModel.PriceRange[0] ),
+                 new SqlParameter("@PriceTo",SearchModel.PriceRange[1] )
             });
             _cmd.CommandText = "SearchRentProperty";
             return GetList<PropertyRentSearchModel>();

@@ -1,4 +1,5 @@
-﻿
+﻿@model Rent.Entities.Model.PropertyRentModel
+
 @{
     ViewBag.Title = "Index";
 }
@@ -49,21 +50,21 @@
                                         </div>*@
                                           <div class="form-group">
                                                 <label>Property State :</label>
-                                                <select id="ddlstate" data-live-search="true" data-live-search-style="begins" title="Select your state"></select>
+                                                <select id="ddlstate" name="ddlstate" data-live-search="true" value="@Model.StateID" data-live-search-style="begins" title="Select your state"></select>
                                             </div>
                                            <div class="form-group">
                                                 <label>Property City :</label>
-                                                <select id="ddlcity" name="CityId" data-live-search="true" data-live-search-style="begins" title="Select your city"></select>
+                                                <select id="ddlcity" name="CityId" data-live-search="true" value="@Model.CityId" data-live-search-style="begins" title="Select your city"></select>
                                             </div>
                                           <div class="form-group">
                                                 <label>Locality :</label>
-                                                <input name="Locality" type="text" class="form-control" placeholder="Enter Locality">
+                                                <input name="Locality" value="@Model.Locality" type="text" class="form-control" placeholder="Enter Locality">
                                             </div>
                                     </div>
                                     <div class="col-sm-6 col-sm-offset-1">
                                         <div class="form-group">
                                             <label>Property name <small>(required)</small></label>
-                                            <input name="PropertyName" type="text" class="form-control" placeholder="Super villa ...">
+                                            <input name="PropertyName" value="@Model.PropertyName" type="text" class="form-control" placeholder="Super villa ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Property Type <small>(required)</small></label>
@@ -71,7 +72,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Telephone <small>(empty if you wanna use default phone number)</small></label>
-                                            <input name="Mobile" type="text" class="form-control" placeholder="+1 473 843 7436">
+                                            <input name="Mobile" type="text" value="@Model.Mobile" class="form-control" placeholder="+1 473 843 7436">
                                         </div>
                                     </div>
                                 </div>
@@ -80,14 +81,14 @@
                             <div class="tab-pane" id="step2">
                                 <h4 class="info-text"> How much your Property is Beautiful ? </h4>
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    @*<div class="col-sm-12">
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Property Description :</label>
                                                 <textarea name="Description" class="form-control"></textarea>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>*@
                                     <div class="col-sm-12">
                                         @*<div class="col-sm-3">
                                             <div class="form-group">
@@ -104,7 +105,7 @@
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Area  :</label>
-                                                <input name="Area" type="text" class="form-control" placeholder="Super villa ...">
+                                                <input name="Area" type="text" value="@Model.Area" class="form-control" placeholder="Super villa ...">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -122,40 +123,50 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label for="property-geo">Total Floor :</label>
-                                                <input type="text" class="span2" value="" data-slider-min="1"
-                                                       data-slider-max="20" data-slider-step="1"
-                                                       data-slider-value="[1,4]" id="min-bed"><br />
+                                                <input type="text" name="TotalFloor" class="span2" value="" data-slider-min="1"
+                                                       data-slider-max="@Model.TotalFloor" data-slider-step="1"
+                                                       data-slider-value="[1,4]" id="min_bed"><br />
                                                 <b class="pull-left color">1</b>
                                                 <b class="pull-right color">20</b>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label for="price-range">Min baths :</label>
-                                                <input type="text" class="span2" value="" data-slider-min="1"
-                                                       data-slider-max="5" data-slider-step="1"
-                                                       data-slider-value="[1,2]" id="min-baths"><br />
+                                                <label for="price-range">Min bed rooms :</label>
+                                                <input type="text" name="BedRooms" class="span2" value="" data-slider-min="1"
+                                                       data-slider-max="@Model.BedRooms" data-slider-step="1"
+                                                       data-slider-value="[1,2]" id="min-bedroom"><br />
                                                 <b class="pull-left color">1</b>
                                                 <b class="pull-right color">5</b>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label for="property-geo">Property geo (m2) :</label>
-                                                <input type="text" class="span2" value="" data-slider-min="1"
-                                                       data-slider-max="600" data-slider-step="1"
-                                                       data-slider-value="[50,450]" id="property-geo"><br />
-                                                <b class="pull-left color">40m</b>
-                                                <b class="pull-right color">12000m</b>
+                                                <label for="price-range">Min baths :</label>
+                                                <input type="text" name="BathroomNum" class="span2" value="" data-slider-min="1"
+                                                       data-slider-max="@Model.BathroomNum" data-slider-step="1"
+                                                       data-slider-value="[1,2]" id="min-baths"><br />
+                                                <b class="pull-left color">1</b>
+                                                <b class="pull-right color">5</b>
                                             </div>
                                         </div>
+                                        @*<div class="col-sm-4">
+            <div class="form-group">
+                <label for="property-geo">Property geo (m2) :</label>
+                <input type="text" class="span2" value="" data-slider-min="1"
+                       data-slider-max="600" data-slider-step="1"
+                       data-slider-value="[50,450]" id="property-geo"><br />
+                <b class="pull-left color">40m</b>
+                <b class="pull-right color">12000m</b>
+            </div>
+        </div>*@
                                     </div>
                                     <div class="col-sm-12 padding-top-15">
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox"> Car Parking
+                                                        <input name="CarParking" value="@Model.CarParking" type="checkbox"> Car Parking
                                                     </label>
                                                 </div>
                                             </div>
@@ -164,7 +175,7 @@
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox"> Bike Parking
+                                                        <input name="BikeParking" value="@Model.BikeParking" type="checkbox"> Bike Parking
                                                     </label>
                                                 </div>
                                             </div>
@@ -173,7 +184,7 @@
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox"> Lift
+                                                        <input name="Lift" value="@Model.Lift" type="checkbox"> Lift
                                                     </label>
                                                 </div>
                                             </div>
@@ -182,7 +193,7 @@
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox"> 24 hrs water
+                                                        <input name="Water" value="@Model.Water" type="checkbox"> 24 hrs water
                                                     </label>
                                                 </div>
                                             </div>
@@ -194,7 +205,7 @@
                                             <div class="form-group">
                                                 <div class="radio">
                                                     <label>
-                                                        <input name="FurnishedType" type="radio" value="1"> Semi Furnished
+                                                        <input name="FurnishedType" type="radio" value="@Model.FurnishedType"> Semi Furnished
                                                     </label>
                                                 </div>
                                             </div>
@@ -203,7 +214,7 @@
                                             <div class="form-group">
                                                 <div class="radio">
                                                     <label>
-                                                        <input name="FurnishedType" type="radio" value="2"> Full Furnished
+                                                        <input name="FurnishedType" type="radio" value="@Model.FurnishedType"> Full Furnished
                                                     </label>
                                                 </div>
                                             </div>
@@ -212,7 +223,7 @@
                                             <div class="form-group">
                                                 <div class="radio">
                                                     <label>
-                                                        <input name="FurnishedType" type="radio" value="3"> Un furnished
+                                                        <input name="FurnishedType" type="radio" value="@Model.FurnishedType"> Un furnished
                                                     </label>
                                                 </div>
                                             </div>
@@ -230,14 +241,14 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Expected Price <small>(required)</small></label>
-                                            <input name="ExpectedPrice" type="text" class="form-control" placeholder="Enter expected price">
+                                            <input name="ExpectedPrice" type="text" class="form-control" value="@Model.ExpectedPrice" placeholder="Enter expected price">
                                         </div>
                                         <div class="form-group">
                                             <label>Security Amount<small></small></label>
-                                            <input name="SecurityAmount" type="text" class="form-control" placeholder="">
+                                            <input name="SecurityAmount" type="text" class="form-control" value="@Model.SecurityAmount" placeholder="">
                                         <div class="form-group">
                                             <label>Maintenance Charges </label>
-                                            <input name="MaintenanceCharges" type="text" class="form-control" placeholder="">
+                                            <input name="MaintenanceCharges" type="text" class="form-control" value="@Model.MaintenanceCharges" placeholder="">
                                         </div>
                                     </div>
                                 </div>
@@ -305,7 +316,7 @@
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                        <input type="hidden" name="PropertyId" id="PropertyId" />
+                        <input type="hidden" name="PropertyId" id="PropertyId" value="@Model.PropertyId" />
                     </form>
                 </div>
                 <!-- End submit form -->

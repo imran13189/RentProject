@@ -34,7 +34,6 @@ namespace Rent.DAL
         public bool CarParking { get; set; }
         public Nullable<int> FacingId { get; set; }
         public int CityId { get; set; }
-        public string Description { get; set; }
         public string Mobile { get; set; }
         public string PropertyName { get; set; }
         public bool BikeParking { get; set; }
@@ -45,5 +44,6 @@ namespace Rent.DAL
         public bool IsDeleted { get; set; }
         public bool IsActive { get; set; }
         public long UserId { get; set; }
+        public int BedRooms { get; set; }
     }
 }

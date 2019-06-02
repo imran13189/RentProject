@@ -74,8 +74,8 @@ $(document).ready(function () {
     $('#price-range').slider();
     $('#property-geo').slider();
     $('#min-baths').slider();
-    $('#min-bed').slider();
-
+    $('#min-bedroom').slider();
+    $('#min_bed').slider();
     var RGBChange = function () {
         $('#RGB').css('background', '#FDC600')
     };

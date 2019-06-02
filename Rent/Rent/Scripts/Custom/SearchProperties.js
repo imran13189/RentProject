@@ -22,7 +22,7 @@ function InitPaging() {
 
 function GetPrams() {
    var params = {
-        PageSize: 3,
+        PageSize:12 ,
         PageNumber: pagenumber ,
         Locality: $("#Locality").val(),
         PropertyTypeId: $("#ddlproperty").val(),
@@ -49,14 +49,5 @@ $(document).ready(function () {
     $('#btnsearch').click(function (e) {
         e.preventDefault();
         GetProperties();
-        //var params = { PageSize: 10, PageNumber:1}
-        //$.get($_SearchProperties, params, function (result) {
-
-        //    if ($("#searchproperties .section").length > 2)
-        //        $("#searchproperties .section").slice(-2).remove();
-
-        //    $('#searchproperties').append(result);
-        //    InitPaging();
-        //});
     });
 });

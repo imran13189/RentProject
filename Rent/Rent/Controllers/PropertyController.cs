@@ -24,7 +24,7 @@ namespace Rent.Controllers
             if (id.HasValue)
               return View(_rent.GetRentProperty(id.Value));
 
-            return View();
+            return View(new PropertyRentModel());
         }
 
         public ActionResult PropertyFiles(long PropertyId)

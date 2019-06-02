@@ -51,7 +51,6 @@
           <Property Name="CarParking" Type="bit" Nullable="false" />
           <Property Name="FacingId" Type="int" />
           <Property Name="CityId" Type="int" Nullable="false" />
-          <Property Name="Description" Type="varchar(max)" />
           <Property Name="Mobile" Type="varchar" MaxLength="20" />
           <Property Name="PropertyName" Type="varchar(max)" />
           <Property Name="BikeParking" Type="bit" Nullable="false" />
@@ -62,6 +61,7 @@
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="BedRooms" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -171,7 +171,6 @@
           <Property Name="CarParking" Type="Boolean" Nullable="false" />
           <Property Name="FacingId" Type="Int32" />
           <Property Name="CityId" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="PropertyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="BikeParking" Type="Boolean" Nullable="false" />
@@ -182,6 +181,7 @@
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="BedRooms" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -240,6 +240,7 @@
           <EntitySetMapping Name="PropertyRents">
             <EntityTypeMapping TypeName="SIPAZModel.PropertyRent">
               <MappingFragment StoreEntitySet="PropertyRent">
+                <ScalarProperty Name="BedRooms" ColumnName="BedRooms" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
@@ -250,7 +251,6 @@
                 <ScalarProperty Name="BikeParking" ColumnName="BikeParking" />
                 <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="FacingId" ColumnName="FacingId" />
                 <ScalarProperty Name="CarParking" ColumnName="CarParking" />

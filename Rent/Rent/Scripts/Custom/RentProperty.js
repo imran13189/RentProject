@@ -10,7 +10,14 @@
             $("#ddlstate").append("<option value=" + item.StateId + ">" + item.StateName+"</option>")
 
         });
+        
         $('#ddlstate').selectpicker({});
+        if ($("#ddlstate").attr('value') != "") {
+            $('select[name=ddlstate]').val($("#ddlstate").attr('value'));
+            $('#ddlstate').selectpicker('refresh');
+            $('#ddlstate').trigger("change");
+        }
+        
     });
 
     $("#ddlstate").change(function () {
@@ -20,7 +27,12 @@
             $.each(data, function (i, item) {
                 $("#ddlcity").append("<option value=" + item.CityId + ">" + item.CityName + "</option>")
             });
+            debugger;
             $('#ddlcity').selectpicker('refresh');
+            if ($("#ddlcity").attr('value') != "") {
+                $('select[name=CityId]').val($("#ddlcity").attr('value'));
+                $('#ddlcity').selectpicker('refresh');
+            }
         });
     });
    
@@ -61,6 +73,12 @@
             }
             ,
             ExpectedPrice:
+            {
+                required: true,
+                number: true
+            }
+            ,
+            BedRooms:
             {
                 required: true,
                 number: true
