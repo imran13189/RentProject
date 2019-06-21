@@ -23,7 +23,7 @@
         <div class="clearfix">
             <div class="wizard-container">
                 <div class="wizard-card ct-wizard-orange" id="wizardProperty">
-                    <form action="" id="frmpropertyrent">
+                    <form action="" id="frmpropertyrent" name="frmpropertyrent">
                         <div class="wizard-header">
                             <h3>
                                 <b>Submit</b> YOUR PROPERTY <br>
@@ -123,9 +123,9 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label for="property-geo">Total Floor :</label>
-                                                <input type="text" name="TotalFloor" class="span2" value="" data-slider-min="1"
+                                                <input type="text" name="TotalFloor" class="span2" value="1" data-slider-min="1"
                                                        data-slider-max="@Model.TotalFloor" data-slider-step="1"
-                                                       data-slider-value="[1,4]" id="min_bed"><br />
+                                                       id="min_bed"><br />
                                                 <b class="pull-left color">1</b>
                                                 <b class="pull-right color">20</b>
                                             </div>
@@ -133,9 +133,9 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label for="price-range">Min bed rooms :</label>
-                                                <input type="text" name="BedRooms" class="span2" value="" data-slider-min="1"
+                                                <input type="text" name="BedRooms" class="span2" value="1" data-slider-min="1" 
                                                        data-slider-max="@Model.BedRooms" data-slider-step="1"
-                                                       data-slider-value="[1,2]" id="min-bedroom"><br />
+                                                       id="min-bedroom"><br />
                                                 <b class="pull-left color">1</b>
                                                 <b class="pull-right color">5</b>
                                             </div>
@@ -143,9 +143,9 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label for="price-range">Min baths :</label>
-                                                <input type="text" name="BathroomNum" class="span2" value="" data-slider-min="1"
+                                                <input type="text" name="BathroomNum" class="span2" value="1" data-slider-min="1"
                                                        data-slider-max="@Model.BathroomNum" data-slider-step="1"
-                                                       data-slider-value="[1,2]" id="min-baths"><br />
+                                                       id="min-baths"><br />
                                                 <b class="pull-left color">1</b>
                                                 <b class="pull-right color">5</b>
                                             </div>
@@ -166,7 +166,7 @@
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input name="CarParking" value="@Model.CarParking" type="checkbox"> Car Parking
+                                                        <input name="CarParking" id="CarParking" value="@Model.CarParking" type="checkbox"> Car Parking
                                                     </label>
                                                 </div>
                                             </div>
@@ -175,7 +175,7 @@
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input name="BikeParking" value="@Model.BikeParking" type="checkbox"> Bike Parking
+                                                        <input name="BikeParking" id="BikeParking" value="@Model.BikeParking" type="checkbox"> Bike Parking
                                                     </label>
                                                 </div>
                                             </div>
@@ -184,7 +184,7 @@
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input name="Lift" value="@Model.Lift" type="checkbox"> Lift
+                                                        <input name="Lift" id="Lift" value="@Model.Lift" type="checkbox"> Lift
                                                     </label>
                                                 </div>
                                             </div>
@@ -193,7 +193,7 @@
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input name="Water" value="@Model.Water" type="checkbox"> 24 hrs water
+                                                        <input name="Water" id="Water" value="@Model.Water" type="checkbox"> 24 hrs water
                                                     </label>
                                                 </div>
                                             </div>
@@ -205,7 +205,7 @@
                                             <div class="form-group">
                                                 <div class="radio">
                                                     <label>
-                                                        <input name="FurnishedType" type="radio" value="@Model.FurnishedType"> Semi Furnished
+                                                        <input name="FurnishedType" type="radio" value="0" checked="@(Model.FurnishedType==0?"checked":"")"> Semi Furnished
                                                     </label>
                                                 </div>
                                             </div>
@@ -214,7 +214,7 @@
                                             <div class="form-group">
                                                 <div class="radio">
                                                     <label>
-                                                        <input name="FurnishedType" type="radio" value="@Model.FurnishedType"> Full Furnished
+                                                        <input name="FurnishedType" type="radio" value="1" checked="@(Model.FurnishedType==1?"checked":"")"> Full Furnished
                                                     </label>
                                                 </div>
                                             </div>
@@ -223,7 +223,7 @@
                                             <div class="form-group">
                                                 <div class="radio">
                                                     <label>
-                                                        <input name="FurnishedType" type="radio" value="@Model.FurnishedType"> Un furnished
+                                                        <input name="FurnishedType" type="radio" value="2" checked="@(Model.FurnishedType==2?"checked":"")"> Un furnished
                                                     </label>
                                                 </div>
                                             </div>

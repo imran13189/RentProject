@@ -37,6 +37,7 @@ namespace Rent.Entities.Model
         public string[] Photos { get; set; }
         public long UserId { get; set; }
         public string FileName { get; set; }
+        public string PropertyUrl { get; set; }
         //PageProperties
         public int PageSize { get; set; }
         public int PageNumber { get; set; }

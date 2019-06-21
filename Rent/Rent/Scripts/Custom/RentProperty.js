@@ -113,9 +113,14 @@
         // in the "action" attribute of the form when valid
         submitHandler: function (form, e) {
            
-
+            
+            form.CarParking.value = $("#CarParking").prop('checked');
+            form.BikeParking.value = $("#BikeParking").prop('checked');
+            form.Lift.value = $("#Lift").prop('checked');
+            form.Water.value = $("#Water").prop('checked');
             //var formData = new FormData(form1[0]);
             var usermodel = JSON.parse(JSON.stringify($(form).serializeArray()));
+           
            
             debugger;
 

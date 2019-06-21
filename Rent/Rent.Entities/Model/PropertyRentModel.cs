@@ -22,7 +22,7 @@ namespace Rent.Entities.Model
         public Nullable<int> BathroomNum { get; set; }
         public Nullable<int> TotalFloor { get; set; }
         public Nullable<int> FloorNum { get; set; }
-        public bool FurnishedType { get; set; }
+        public int FurnishedType { get; set; }
         public string Address { get; set; }
         public string ProjectSociety { get; set; }
         public bool CarParking { get; set; }

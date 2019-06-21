@@ -45,7 +45,7 @@
           <Property Name="BathroomNum" Type="int" />
           <Property Name="TotalFloor" Type="int" />
           <Property Name="FloorNum" Type="int" />
-          <Property Name="FurnishedType" Type="bit" Nullable="false" />
+          <Property Name="FurnishedType" Type="int" Nullable="false" />
           <Property Name="Address" Type="varchar(max)" />
           <Property Name="ProjectSociety" Type="varchar(max)" />
           <Property Name="CarParking" Type="bit" Nullable="false" />
@@ -165,7 +165,7 @@
           <Property Name="BathroomNum" Type="Int32" />
           <Property Name="TotalFloor" Type="Int32" />
           <Property Name="FloorNum" Type="Int32" />
-          <Property Name="FurnishedType" Type="Boolean" Nullable="false" />
+          <Property Name="FurnishedType" Type="Int32" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ProjectSociety" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CarParking" Type="Boolean" Nullable="false" />
